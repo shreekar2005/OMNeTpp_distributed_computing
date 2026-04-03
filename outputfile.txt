@@ -1,0 +1,28 @@
+Node 1 computed max 15 for subtask 1
+Node 2 computed max 25 for subtask 2
+Node 4 computed max 45 for subtask 4
+Node 1 computed max 95 for subtask 9
+Node 0 computed max 5 for subtask 0
+Node 3 computed max 35 for subtask 3
+Node 0 got result for subtask 4. Progress: 1/10
+Node 5 computed max 55 for subtask 5
+Node 6 computed max 65 for subtask 6
+Node 0 computed max 85 for subtask 8
+Node 0 got result for subtask 2. Progress: 2/10
+Node 0 got result for subtask 6. Progress: 3/10
+Node 7 computed max 75 for subtask 7
+Node 0 got result for subtask 0. Progress: 4/10
+Node 0 got result for subtask 1. Progress: 5/10
+Node 0 got result for subtask 3. Progress: 6/10
+Node 0 got result for subtask 5. Progress: 7/10
+Node 0 got result for subtask 7. Progress: 8/10
+Node 0 got result for subtask 8. Progress: 9/10
+Node 0 got result for subtask 9. Progress: 10/10
+TASK COMPLETE! Overall Max Element is: 95
+Gossip Received - Node: 1 | From: Node 0 | Msg: <1:192.168.0.0:0>
+Gossip Received - Node: 2 | From: Node 0 | Msg: <1:192.168.0.0:0>
+Gossip Received - Node: 4 | From: Node 0 | Msg: <1:192.168.0.0:0>
+Gossip Received - Node: 3 | From: Node 1 | Msg: <1:192.168.0.0:0>
+Gossip Received - Node: 5 | From: Node 1 | Msg: <1:192.168.0.0:0>
+Gossip Received - Node: 6 | From: Node 2 | Msg: <1:192.168.0.0:0>
+Gossip Received - Node: 7 | From: Node 3 | Msg: <1:192.168.0.0:0>
