@@ -1,8 +1,8 @@
 version 3
-run General-0-20260417-18:17:25-78707
+run General-0-20260417-19:09:02-90428
 attr configname General
-attr datetime 20260417-18:17:25
-attr datetimef 20260417-181725
+attr datetime 20260417-19:09:02
+attr datetimef 20260417-190902
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,38 +10,30 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network P2PNetwork
-attr processid 78707
+attr processid 90428
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 config network P2PNetwork
+config seed-set 0
 
 par P2PNetwork.node0 typename "\"ClientNode\""
 par P2PNetwork.node0 clientId 0
-par P2PNetwork.node0 numClients 8
+par P2PNetwork.node0 numClients 5
 par P2PNetwork.node1 typename "\"ClientNode\""
 par P2PNetwork.node1 clientId 1
-par P2PNetwork.node1 numClients 8
+par P2PNetwork.node1 numClients 5
 par P2PNetwork.node2 typename "\"ClientNode\""
 par P2PNetwork.node2 clientId 2
-par P2PNetwork.node2 numClients 8
+par P2PNetwork.node2 numClients 5
 par P2PNetwork.node3 typename "\"ClientNode\""
 par P2PNetwork.node3 clientId 3
-par P2PNetwork.node3 numClients 8
+par P2PNetwork.node3 numClients 5
 par P2PNetwork.node4 typename "\"ClientNode\""
 par P2PNetwork.node4 clientId 4
-par P2PNetwork.node4 numClients 8
-par P2PNetwork.node5 typename "\"ClientNode\""
-par P2PNetwork.node5 clientId 5
-par P2PNetwork.node5 numClients 8
-par P2PNetwork.node6 typename "\"ClientNode\""
-par P2PNetwork.node6 clientId 6
-par P2PNetwork.node6 numClients 8
-par P2PNetwork.node7 typename "\"ClientNode\""
-par P2PNetwork.node7 clientId 7
-par P2PNetwork.node7 numClients 8
+par P2PNetwork.node4 numClients 5
 par P2PNetwork typename "\"P2PNetwork\""
-par P2PNetwork numClients 8
+par P2PNetwork numClients 5
 
