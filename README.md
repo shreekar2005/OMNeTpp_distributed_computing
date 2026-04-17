@@ -11,7 +11,7 @@ Nodes divide a large computational task (e.g., finding the maximum element in an
 
 ### Files Description
 * `topo.txt` - Configuration file defining the number of nodes and their connections.
-* `generate_topo.py` - Python script that reads topo.txt and dynamically generates the OMNeT++ `P2PNetwork.ned` file, placing nodes in a perfect graphical ring.
+* `generate_topo.py` - Python script that reads topo.txt and dynamically generates the OMNeT++ `P2PNetwork.ned` file, placing nodes in a perfect graphical ring OR as specified in topo.txt.
 * `ClientNode.cc` / `.h` - The core C++ logic for the client nodes (routing, subtask processing, gossiping).
 * `TaskMessage.msg` - Custom OMNeT++ message definition for routing arrays and results.
 * `GossipMessage.msg` - Custom OMNeT++ message for the termination broadcast.
