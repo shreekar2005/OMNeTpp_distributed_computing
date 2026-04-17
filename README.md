@@ -1,7 +1,3 @@
-Here is the full README. You can save this as `README.md` or `README.txt` inside your project folder. I wrote it in a straightforward, clean style so it looks professional but natural.
-
-***
-
 # CSL3080 Assignment 2 - P2P Distributed Task Execution
 
 **Team Members:**
@@ -35,6 +31,7 @@ Nodes divide a large computational task (e.g., finding the maximum element in an
    `make`
 
 4. Generate the dynamic network topology:
+   `python3 generate_topo.py` or
    `./generate_topo.py`
 
 5. Run the simulation:

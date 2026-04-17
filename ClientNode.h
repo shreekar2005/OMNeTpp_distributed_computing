@@ -36,6 +36,9 @@ class ClientNode : public cSimpleModule {
     void processTaskMessage(cMessage *msg);
     void handleGossip(cMessage *msg);
     void broadcastGossip(GossipMessage *msg, int excludeGateIndex);
+    
+    // New helper to check if we can terminate
+    void checkTermination();
 
     std::string generateHash(std::string content);
     void writeToFile(std::string text);
