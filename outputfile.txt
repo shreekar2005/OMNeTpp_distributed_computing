@@ -1,128 +1,78 @@
 Node 0 is generating its random task array: {685, 560, 630, 193, 836, 764, 708, 360, 10, 724, 278, 755, 805, 600, 71, 473, 601, 397, 315, 706}
-Node 1 computed max 630 for Node 0's subtask 1 with array chunk {630, 193}
-Node 2 computed max 836 for Node 0's subtask 2 with array chunk {836, 764}
-Node 4 computed max 724 for Node 0's subtask 4 with array chunk {10, 724}
-Node 1 computed max 805 for Node 0's subtask 6 with array chunk {805, 600}
-Node 2 computed max 473 for Node 0's subtask 7 with array chunk {71, 473}
-Node 4 computed max 706 for Node 0's subtask 9 with array chunk {315, 706}
-Node 0 computed max 685 for Node 0's subtask 0 with array chunk {685, 560}
-Node 0 got result for its subtask 1. Progress: 1/10
-Node 3 computed max 708 for Node 0's subtask 3 with array chunk {708, 360}
-Node 0 got result for its subtask 4. Progress: 2/10
-Node 0 computed max 755 for Node 0's subtask 5 with array chunk {278, 755}
-Node 0 got result for its subtask 6. Progress: 3/10
-Node 3 computed max 601 for Node 0's subtask 8 with array chunk {601, 397}
-Node 0 got result for its subtask 9. Progress: 4/10
-Node 0 got result for its subtask 2. Progress: 5/10
-Node 0 got result for its subtask 3. Progress: 6/10
-Node 0 got result for its subtask 7. Progress: 7/10
-Node 0 got result for its subtask 8. Progress: 8/10
-Node 0 got result for its subtask 0. Progress: 9/10
-Node 0 got result for its subtask 5. Progress: 10/10
+Node 1 computed max 755 for Node 0's subtask 1 with array chunk {560, 708, 755, 601}
+Node 2 computed max 805 for Node 0's subtask 2 with array chunk {630, 360, 805, 397}
+Node 4 computed max 836 for Node 0's subtask 4 with array chunk {836, 724, 71, 706}
+Node 0 computed max 764 for Node 0's subtask 0 with array chunk {685, 764, 278, 473}
+Node 0 got result for its subtask 1. Progress: 1/5
+Node 3 computed max 600 for Node 0's subtask 3 with array chunk {193, 10, 600, 315}
+Node 0 got result for its subtask 4. Progress: 2/5
+Node 0 got result for its subtask 2. Progress: 3/5
+Node 0 got result for its subtask 3. Progress: 4/5
+Node 0 got result for its subtask 0. Progress: 5/5
 NODE 0 TASK COMPLETE! Overall Max Element for its array is: 836
 Gossip Received - Node: 1 | From: Node 0 | Msg: <1:192.168.0.0:0>
 Gossip Received - Node: 2 | From: Node 0 | Msg: <1:192.168.0.0:0>
 Gossip Received - Node: 4 | From: Node 0 | Msg: <1:192.168.0.0:0>
 Gossip Received - Node: 3 | From: Node 1 | Msg: <1:192.168.0.0:0>
 Node 1 is generating its random task array: {487, 552, 88, 175, 601, 850, 678, 538, 846, 73, 778, 917, 116, 977, 756, 710, 848, 432, 449, 851}
-Node 0 computed max 552 for Node 1's subtask 0 with array chunk {487, 552}
-Node 2 computed max 850 for Node 1's subtask 2 with array chunk {601, 850}
-Node 3 computed max 678 for Node 1's subtask 3 with array chunk {678, 538}
-Node 0 computed max 917 for Node 1's subtask 5 with array chunk {778, 917}
-Node 2 computed max 756 for Node 1's subtask 7 with array chunk {756, 710}
-Node 3 computed max 848 for Node 1's subtask 8 with array chunk {848, 432}
-Node 1 got result for its subtask 0. Progress: 1/10
-Node 1 computed max 175 for Node 1's subtask 1 with array chunk {88, 175}
-Node 1 got result for its subtask 2. Progress: 2/10
-Node 4 computed max 846 for Node 1's subtask 4 with array chunk {846, 73}
-Node 1 got result for its subtask 5. Progress: 3/10
-Node 1 computed max 977 for Node 1's subtask 6 with array chunk {116, 977}
-Node 1 got result for its subtask 7. Progress: 4/10
-Node 4 computed max 851 for Node 1's subtask 9 with array chunk {449, 851}
-Node 1 got result for its subtask 3. Progress: 5/10
-Node 1 got result for its subtask 4. Progress: 6/10
-Node 1 got result for its subtask 8. Progress: 7/10
-Node 1 got result for its subtask 9. Progress: 8/10
-Node 1 got result for its subtask 1. Progress: 9/10
-Node 1 got result for its subtask 6. Progress: 10/10
+Node 0 computed max 850 for Node 1's subtask 0 with array chunk {487, 850, 778, 710}
+Node 2 computed max 538 for Node 1's subtask 2 with array chunk {88, 538, 116, 432}
+Node 3 computed max 977 for Node 1's subtask 3 with array chunk {175, 846, 977, 449}
+Node 1 got result for its subtask 0. Progress: 1/5
+Node 1 computed max 917 for Node 1's subtask 1 with array chunk {552, 678, 917, 848}
+Node 1 got result for its subtask 2. Progress: 2/5
+Node 4 computed max 851 for Node 1's subtask 4 with array chunk {601, 73, 756, 851}
+Node 1 got result for its subtask 3. Progress: 3/5
+Node 1 got result for its subtask 4. Progress: 4/5
+Node 1 got result for its subtask 1. Progress: 5/5
 NODE 1 TASK COMPLETE! Overall Max Element for its array is: 977
 Gossip Received - Node: 2 | From: Node 1 | Msg: <1.5:192.168.0.1:1>
 Gossip Received - Node: 3 | From: Node 1 | Msg: <1.5:192.168.0.1:1>
 Gossip Received - Node: 0 | From: Node 1 | Msg: <1.5:192.168.0.1:1>
 Gossip Received - Node: 4 | From: Node 0 | Msg: <1.5:192.168.0.1:1>
 Node 2 is generating its random task array: {100, 985, 178, 756, 798, 660, 148, 911, 424, 289, 962, 266, 698, 640, 545, 544, 715, 245, 152, 676}
-Node 1 computed max 756 for Node 2's subtask 1 with array chunk {178, 756}
-Node 3 computed max 911 for Node 2's subtask 3 with array chunk {148, 911}
-Node 4 computed max 424 for Node 2's subtask 4 with array chunk {424, 289}
-Node 1 computed max 698 for Node 2's subtask 6 with array chunk {698, 640}
-Node 3 computed max 715 for Node 2's subtask 8 with array chunk {715, 245}
-Node 4 computed max 676 for Node 2's subtask 9 with array chunk {152, 676}
-Node 0 computed max 985 for Node 2's subtask 0 with array chunk {100, 985}
-Node 2 got result for its subtask 1. Progress: 1/10
-Node 2 computed max 798 for Node 2's subtask 2 with array chunk {798, 660}
-Node 2 got result for its subtask 3. Progress: 2/10
-Node 0 computed max 962 for Node 2's subtask 5 with array chunk {962, 266}
-Node 2 got result for its subtask 6. Progress: 3/10
-Node 2 computed max 545 for Node 2's subtask 7 with array chunk {545, 544}
-Node 2 got result for its subtask 8. Progress: 4/10
-Node 2 got result for its subtask 0. Progress: 5/10
-Node 2 got result for its subtask 4. Progress: 6/10
-Node 2 got result for its subtask 5. Progress: 7/10
-Node 2 got result for its subtask 9. Progress: 8/10
-Node 2 got result for its subtask 2. Progress: 9/10
-Node 2 got result for its subtask 7. Progress: 10/10
+Node 1 computed max 985 for Node 2's subtask 1 with array chunk {985, 148, 266, 715}
+Node 3 computed max 756 for Node 2's subtask 3 with array chunk {756, 424, 640, 152}
+Node 4 computed max 798 for Node 2's subtask 4 with array chunk {798, 289, 545, 676}
+Node 0 computed max 962 for Node 2's subtask 0 with array chunk {100, 660, 962, 544}
+Node 2 got result for its subtask 1. Progress: 1/5
+Node 2 computed max 911 for Node 2's subtask 2 with array chunk {178, 911, 698, 245}
+Node 2 got result for its subtask 3. Progress: 2/5
+Node 2 got result for its subtask 0. Progress: 3/5
+Node 2 got result for its subtask 4. Progress: 4/5
+Node 2 got result for its subtask 2. Progress: 5/5
 NODE 2 TASK COMPLETE! Overall Max Element for its array is: 985
 Gossip Received - Node: 3 | From: Node 2 | Msg: <2:192.168.0.2:2>
 Gossip Received - Node: 4 | From: Node 2 | Msg: <2:192.168.0.2:2>
 Gossip Received - Node: 1 | From: Node 2 | Msg: <2:192.168.0.2:2>
 Gossip Received - Node: 0 | From: Node 4 | Msg: <2:192.168.0.2:2>
 Node 3 is generating its random task array: {511, 460, 883, 184, 29, 803, 129, 129, 933, 54, 902, 551, 489, 757, 274, 336, 389, 618, 43, 443}
-Node 0 computed max 511 for Node 3's subtask 0 with array chunk {511, 460}
-Node 2 computed max 803 for Node 3's subtask 2 with array chunk {29, 803}
-Node 4 computed max 933 for Node 3's subtask 4 with array chunk {933, 54}
-Node 0 computed max 902 for Node 3's subtask 5 with array chunk {902, 551}
-Node 2 computed max 336 for Node 3's subtask 7 with array chunk {274, 336}
-Node 4 computed max 443 for Node 3's subtask 9 with array chunk {43, 443}
-Node 1 computed max 883 for Node 3's subtask 1 with array chunk {883, 184}
-Node 3 got result for its subtask 2. Progress: 1/10
-Node 3 computed max 129 for Node 3's subtask 3 with array chunk {129, 129}
-Node 3 got result for its subtask 4. Progress: 2/10
-Node 1 computed max 757 for Node 3's subtask 6 with array chunk {489, 757}
-Node 3 got result for its subtask 7. Progress: 3/10
-Node 3 computed max 618 for Node 3's subtask 8 with array chunk {389, 618}
-Node 3 got result for its subtask 9. Progress: 4/10
-Node 3 got result for its subtask 0. Progress: 5/10
-Node 3 got result for its subtask 1. Progress: 6/10
-Node 3 got result for its subtask 5. Progress: 7/10
-Node 3 got result for its subtask 6. Progress: 8/10
-Node 3 got result for its subtask 3. Progress: 9/10
-Node 3 got result for its subtask 8. Progress: 10/10
+Node 0 computed max 902 for Node 3's subtask 0 with array chunk {511, 803, 902, 336}
+Node 2 computed max 883 for Node 3's subtask 2 with array chunk {883, 129, 489, 618}
+Node 4 computed max 443 for Node 3's subtask 4 with array chunk {29, 54, 274, 443}
+Node 1 computed max 551 for Node 3's subtask 1 with array chunk {460, 129, 551, 389}
+Node 3 got result for its subtask 2. Progress: 1/5
+Node 3 computed max 933 for Node 3's subtask 3 with array chunk {184, 933, 757, 43}
+Node 3 got result for its subtask 4. Progress: 2/5
+Node 3 got result for its subtask 0. Progress: 3/5
+Node 3 got result for its subtask 1. Progress: 4/5
+Node 3 got result for its subtask 3. Progress: 5/5
 NODE 3 TASK COMPLETE! Overall Max Element for its array is: 933
 Gossip Received - Node: 4 | From: Node 3 | Msg: <2.5:192.168.0.3:3>
 Gossip Received - Node: 0 | From: Node 3 | Msg: <2.5:192.168.0.3:3>
 Gossip Received - Node: 2 | From: Node 3 | Msg: <2.5:192.168.0.3:3>
 Gossip Received - Node: 1 | From: Node 4 | Msg: <2.5:192.168.0.3:3>
 Node 4 is generating its random task array: {544, 889, 258, 322, 1000, 938, 58, 292, 871, 120, 780, 431, 83, 92, 897, 399, 612, 566, 909, 634}
-Node 0 computed max 889 for Node 4's subtask 0 with array chunk {544, 889}
-Node 1 computed max 322 for Node 4's subtask 1 with array chunk {258, 322}
-Node 3 computed max 292 for Node 4's subtask 3 with array chunk {58, 292}
-Node 0 computed max 780 for Node 4's subtask 5 with array chunk {780, 431}
-Node 1 computed max 92 for Node 4's subtask 6 with array chunk {83, 92}
-Node 3 computed max 612 for Node 4's subtask 8 with array chunk {612, 566}
-Node 4 got result for its subtask 0. Progress: 1/10
-Node 2 computed max 1000 for Node 4's subtask 2 with array chunk {1000, 938}
-Node 4 got result for its subtask 3. Progress: 2/10
-Node 4 computed max 871 for Node 4's subtask 4 with array chunk {871, 120}
-Node 4 got result for its subtask 5. Progress: 3/10
-Node 2 computed max 897 for Node 4's subtask 7 with array chunk {897, 399}
-Node 4 got result for its subtask 8. Progress: 4/10
-Node 4 computed max 909 for Node 4's subtask 9 with array chunk {909, 634}
-Node 4 got result for its subtask 1. Progress: 5/10
-Node 4 got result for its subtask 2. Progress: 6/10
-Node 4 got result for its subtask 6. Progress: 7/10
-Node 4 got result for its subtask 7. Progress: 8/10
-Node 4 got result for its subtask 4. Progress: 9/10
-Node 4 got result for its subtask 9. Progress: 10/10
+Node 0 computed max 938 for Node 4's subtask 0 with array chunk {544, 938, 780, 399}
+Node 1 computed max 889 for Node 4's subtask 1 with array chunk {889, 58, 431, 612}
+Node 3 computed max 909 for Node 4's subtask 3 with array chunk {322, 871, 92, 909}
+Node 4 got result for its subtask 0. Progress: 1/5
+Node 2 computed max 566 for Node 4's subtask 2 with array chunk {258, 292, 83, 566}
+Node 4 got result for its subtask 3. Progress: 2/5
+Node 4 computed max 1000 for Node 4's subtask 4 with array chunk {1000, 120, 897, 634}
+Node 4 got result for its subtask 1. Progress: 3/5
+Node 4 got result for its subtask 2. Progress: 4/5
+Node 4 got result for its subtask 4. Progress: 5/5
 NODE 4 TASK COMPLETE! Overall Max Element for its array is: 1000
 Node 4 has received gossips from all 5 clients. Terminating as per protocol.
 Gossip Received - Node: 0 | From: Node 4 | Msg: <3:192.168.0.4:4>

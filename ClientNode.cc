@@ -3,6 +3,7 @@
 #include "GossipMessage_m.h"
 #include <iostream>
 #include <vector>
+#include <map>
 
 Define_Module(ClientNode);
 
@@ -80,21 +81,16 @@ void ClientNode::handleMessage(cMessage *msg) {
 }
 
 void ClientNode::initiateTask() {
-    int x = 10;
-    expectedSubtasks = x;
+    int totalElements = 20; // total size of the array to process
 
-    std::vector<int> randVal1(x);
-    std::vector<int> randVal2(x);
-    
+    std::vector<int> fullArray(totalElements);
     std::string fullArrayStr = "{";
     
-    for (int i = 0; i < x; i++) {
-        // generate random numbers between 1 and 1000 using OMNeT++'s random number generator (so that array gets random numbers)
-        randVal1[i] = intuniform(1, 1000);
-        randVal2[i] = intuniform(1, 1000);
-        
-        fullArrayStr += std::to_string(randVal1[i]) + ", " + std::to_string(randVal2[i]);
-        if (i < x - 1) {
+    // 1. Generate the full random array
+    for (int i = 0; i < totalElements; i++) {
+        fullArray[i] = intuniform(1, 1000);
+        fullArrayStr += std::to_string(fullArray[i]);
+        if (i < totalElements - 1) {
             fullArrayStr += ", ";
         }
     }
@@ -104,20 +100,33 @@ void ClientNode::initiateTask() {
     EV << initLog << "\n";
     writeToFile(initLog);
 
-    for (int i = 0; i < x; i++) {
+    // 2. Group the array elements by target node
+    // This map links a targetNodeId to the vector of numbers they need to process
+    std::map<int, std::vector<int>> targetPayloads;
+    for (int i = 0; i < totalElements; i++) {
+        int targetId = i % numClients; // Round-robin distribution
+        targetPayloads[targetId].push_back(fullArray[i]);
+    }
+
+    // 3. Set how many result messages we expect back (one per target node)
+    expectedSubtasks = targetPayloads.size();
+    int subtaskIdCounter = 0;
+
+    // 4. Send exactly ONE message to each target node, containing all their assigned numbers
+    for (auto const& [targetId, payload] : targetPayloads) {
         TaskMessage *task = new TaskMessage("subtask");
         task->setSourceId(myClientId);
-
-        int target = i % numClients;
-        task->setTargetId(target);
-        task->setSubtaskId(i);
+        task->setTargetId(targetId);
+        task->setSubtaskId(subtaskIdCounter++); // Unique ID for each chunk sent out
         task->setIsResult(false);
 
-        task->setArrayChunkArraySize(2);
-        task->setArrayChunk(0, randVal1[i]); 
-        task->setArrayChunk(1, randVal2[i]);
+        // Dynamically set the array chunk size to however many numbers this specific node got
+        task->setArrayChunkArraySize(payload.size());
+        for (size_t j = 0; j < payload.size(); j++) {
+            task->setArrayChunk(j, payload[j]);
+        }
 
-        int gateIdx = getNextHopGate(target);
+        int gateIdx = getNextHopGate(targetId);
         send(task, "out", gateIdx);
     }
 }
