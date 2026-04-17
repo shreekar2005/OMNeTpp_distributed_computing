@@ -21,13 +21,13 @@ void ClientNode::initialize() {
 
     buildFingerTable();
 
-    // Node 0 clears the output file at the start of the simulation
+    // node 0 clears the output file at the start of the simulation
     if (myClientId == 0) {
         std::ofstream outfile("outputfile.txt", std::ios_base::trunc);
         outfile.close();
     }
 
-    // ALL nodes now schedule a task, staggered by 500ms (0.5 seconds)
+    // all nodes now schedule their tasks, at intervals of 500ms
     cMessage *timer = new cMessage("startTask");
     scheduleAt(simTime() + 1.0 + (myClientId * 0.5), timer);
 }
@@ -83,14 +83,13 @@ void ClientNode::initiateTask() {
     int x = 10;
     expectedSubtasks = x;
 
-    // Vectors to hold our random values so we can print them before sending
     std::vector<int> randVal1(x);
     std::vector<int> randVal2(x);
     
     std::string fullArrayStr = "{";
     
     for (int i = 0; i < x; i++) {
-        // Generate random numbers between 1 and 1000 using OMNeT++'s random number generator
+        // generate random numbers between 1 and 1000 using OMNeT++'s random number generator (so that array gets random numbers)
         randVal1[i] = intuniform(1, 1000);
         randVal2[i] = intuniform(1, 1000);
         
@@ -126,14 +125,14 @@ void ClientNode::initiateTask() {
 void ClientNode::processTaskMessage(cMessage *msg) {
     TaskMessage *taskMsg = check_and_cast<TaskMessage*>(msg);
 
-    // If we are not the target, forward the message
+    // if we are not the target, forward the message
     if (taskMsg->getTargetId() != myClientId) {
         int nextGate = getNextHopGate(taskMsg->getTargetId());
         send(taskMsg, "out", nextGate);
         return;
     }
 
-    // If it is a request to process a chunk
+    // if it is a request to process a chunk
     if (!taskMsg->isResult()) {
         int maxVal = -1;
         std::string chunkStr = "{";
@@ -169,7 +168,7 @@ void ClientNode::processTaskMessage(cMessage *msg) {
 
         delete msg;
     } 
-    // If it is a result coming back to us (the boss)
+    // if it is a result coming back to us (the boss)
     else {
         receivedSubtasks++;
         if (taskMsg->getMaxResult() > currentTaskMax) {
@@ -180,7 +179,7 @@ void ClientNode::processTaskMessage(cMessage *msg) {
         EV << log << "\n";
         writeToFile(log);
 
-        // When our specific task is fully complete
+        // when our specific task is fully complete
         if (receivedSubtasks == expectedSubtasks) {
             std::string finalLog = "NODE " + std::to_string(myClientId) + " TASK COMPLETE! Overall Max Element for its array is: " + std::to_string(currentTaskMax);
             EV << finalLog << "\n";
@@ -201,7 +200,7 @@ void ClientNode::processTaskMessage(cMessage *msg) {
             broadcastGossip(gossip, -1);
             delete gossip;
             
-            // Check if we can terminate (in case we are the very last node to finish)
+            // checking if we can terminate, if we are the last node to finish
             checkTermination();
         }
         delete msg;
@@ -223,7 +222,7 @@ void ClientNode::handleGossip(cMessage *msg) {
     std::string hash = generateHash(content);
 
     if (messageList.find(hash) == messageList.end()) {
-        // First time receiving this message - add to ML
+        // add msg to ML when received first time
         messageList[hash] = true;
         gossipsReceived++;
 
@@ -232,10 +231,10 @@ void ClientNode::handleGossip(cMessage *msg) {
         EV << log << "\n";
         writeToFile(log);
 
-        // Forward to all peers except the one it came from
+        // forward to all peers except the one it came from
         broadcastGossip(gossipMsg, msg->getArrivalGate()->getIndex());
         
-        // Check if we have received all N gossips
+        // check if we have received all N gossips
         checkTermination();
     }
 

@@ -41,3 +41,6 @@
 *.dwo
 
 out/
+
+backup.txt
+output_backup.txt

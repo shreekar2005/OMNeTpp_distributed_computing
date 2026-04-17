@@ -7,7 +7,6 @@
 #include <string>
 #include <fstream>
 
-// letting the compiler know these message classes exist
 class GossipMessage;
 class TaskMessage;
 
@@ -37,7 +36,6 @@ class ClientNode : public cSimpleModule {
     void handleGossip(cMessage *msg);
     void broadcastGossip(GossipMessage *msg, int excludeGateIndex);
     
-    // New helper to check if we can terminate
     void checkTermination();
 
     std::string generateHash(std::string content);
