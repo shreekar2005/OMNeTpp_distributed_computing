@@ -20,9 +20,9 @@ class ClientNode : public cSimpleModule {
     std::map<int, int> routingTable;
     std::map<std::string, bool> messageList;
 
-    int expectedSubtasks;
-    int receivedSubtasks;
-    int currentTaskMax;
+    int expectedSubtasks; //no. of answers a node expects to get (one per node)
+    int receivedSubtasks; //no. of responses received to a node till now
+    int currentTaskMax; //max of all subtask responses received till now
     int gossipsReceived;
 
     virtual void initialize() override;

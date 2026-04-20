@@ -46,24 +46,24 @@ void ClientNode::buildFingerTable() {
         if (nextInGate) {
             cModule *nextModule = nextInGate->getOwnerModule();
             int peerId = nextModule->par("clientId");
-            routingTable[peerId] = i;
+            routingTable[peerId] = i; // {peer id, gate no.}
         }
     }
 }
 
 int ClientNode::getNextHopGate(int targetId) {
     if (routingTable.count(targetId)) {
-        return routingTable[targetId];
+        return routingTable[targetId]; //if targetId is a peer
     }
 
     int bestPeer = -1;
     int minDistance = numClients + 1;
-
+    //0 --> 1,2,4 target=7, 4-->5, 6, 0, 6-->7; 7-1+8 = 14%8=6,5 , 3
     for (auto const& [peerId, gateIdx] : routingTable) {
         int dist = (targetId - peerId + numClients) % numClients;
         if (dist > 0 && dist < minDistance) {
-            minDistance = dist;
-            bestPeer = peerId;
+            minDistance = dist;//6,5,3
+            bestPeer = peerId; //1, 2,4 
         }
     }
     return routingTable[bestPeer];
@@ -80,15 +80,16 @@ void ClientNode::handleMessage(cMessage *msg) {
     }
 }
 
+//create a task and send it to its solver
 void ClientNode::initiateTask() {
     int totalElements = 20; // total size of the array to process
 
     std::vector<int> fullArray(totalElements);
     std::string fullArrayStr = "{";
     
-    // 1. Generate the full random array
+    // generating the full random array
     for (int i = 0; i < totalElements; i++) {
-        fullArray[i] = intuniform(1, 1000);
+        fullArray[i] = intuniform(1, 1000); //omnetpp function intuniform
         fullArrayStr += std::to_string(fullArray[i]);
         if (i < totalElements - 1) {
             fullArrayStr += ", ";
@@ -100,19 +101,20 @@ void ClientNode::initiateTask() {
     EV << initLog << "\n";
     writeToFile(initLog);
 
-    // 2. Group the array elements by target node
-    // This map links a targetNodeId to the vector of numbers they need to process
+    
+    // map to link a targetNodeId to the vector of numbers they need to process
     std::map<int, std::vector<int>> targetPayloads;
+
     for (int i = 0; i < totalElements; i++) {
-        int targetId = i % numClients; // Round-robin distribution
+        int targetId = i % numClients; // round-robin distribution
         targetPayloads[targetId].push_back(fullArray[i]);
     }
 
-    // 3. Set how many result messages we expect back (one per target node)
-    expectedSubtasks = targetPayloads.size();
+    
+    expectedSubtasks = targetPayloads.size(); //expected subtasks = no. of nodes to whom task has been assigned
     int subtaskIdCounter = 0;
 
-    // 4. Send exactly ONE message to each target node, containing all their assigned numbers
+    // send exactly one message to each target node, containing all their assigned numbers
     for (auto const& [targetId, payload] : targetPayloads) {
         TaskMessage *task = new TaskMessage("subtask");
         task->setSourceId(myClientId);
@@ -120,7 +122,7 @@ void ClientNode::initiateTask() {
         task->setSubtaskId(subtaskIdCounter++); // Unique ID for each chunk sent out
         task->setIsResult(false);
 
-        // Dynamically set the array chunk size to however many numbers this specific node got
+        // dynamically set the array chunk size to however many numbers this specific node got
         task->setArrayChunkArraySize(payload.size());
         for (size_t j = 0; j < payload.size(); j++) {
             task->setArrayChunk(j, payload[j]);
@@ -259,5 +261,5 @@ void ClientNode::checkTermination() {
 }
 
 std::string ClientNode::generateHash(std::string content) {
-    return content + "_hash";
+    return content + "_hash"; //use any hashing algo
 }
